@@ -1,0 +1,20 @@
+{% extends "portfolio/layout.html" %}
+
+{% block body %}
+<div class="register-div">
+    <form class="register-form" method="post" id="login-form">
+        {% csrf_token %}
+        <h2> Login</h2>
+        <label> Username </label>
+        <input name="username" type="text" required>
+        <label> Password </label>
+        <input name="password" type="password" required>
+        {% if message %}
+        {{message}}
+        {% endif %}
+        <input class="button submit" type="submit" value="Log in">
+    </form>
+</div> 
+{% endblock body %}
+
+

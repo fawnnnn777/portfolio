@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Portfolio </title>
+        <link href="{% static 'portfolio/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+    </head>
+    <body>
+        <nav class="nav">
+            <a href="{% url 'index' %}" class="logo"> MyPorto </a>
+                <a href="#" class="nav-link option"> Search Portfolio # </a>
+                {% if portfolio %}
+                <a href="{% url 'myporto' %}" class="nav-link option login"> Edit my portfolio </a>
+                {% else %}
+                <a href="{% url 'myporto' %}" class="nav-link option login"> My Portfolio </a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'logout_view' %}" class="nav-link option logout"> Log out </a>
+                {% else %}
+                <a class="button register" href="{% url 'register' %}" class="nav-link"> Register </a>
+                <a href="{% url 'login_view' %}" class="nav-link option login"> Login </a>
+                {% endif %}
+        </nav>
+        
+
+
+
+        {% block body %}
+        {% endblock %}        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="{% static 'portfolio/portfolio.js' %}"></script>
+
+    </body>
+</html>

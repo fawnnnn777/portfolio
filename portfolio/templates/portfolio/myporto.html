@@ -1,0 +1,27 @@
+{% extends "portfolio/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+<div style="background: rgb(2,0,36);
+background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(111,111,217,1) 0%, rgba(2,162,222,1) 55%, rgba(0,212,255,1) 100%);">
+    <div class="hidden section">
+        <img class="picture" src="{% static 'portfolio/stick.png' %}">
+        <h1> {{porto.name}}</h1>
+    </div>
+
+    <div class="hidden section">
+        {{porto.description}}
+    </div>
+
+    <div class="hidden section">
+        <p> {{porto.project}} </p>
+       <p> {{porto.project_description}} </p>
+       <p> {{porto.link}} </p>
+    </div>
+    <div class="hidden section">
+        <p>{{porto.email}} </p>
+        <p>{{porto.phone}} </p>
+    </div>
+</div>
+{% endblock body %}
